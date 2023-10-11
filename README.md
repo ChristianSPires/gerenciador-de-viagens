@@ -8,7 +8,7 @@
 
 <h2>Protótipo</h2>
 
-<p>https://www.figma.com/file/yLXLjEVPCyNIrBT6VmxMr6/Gerenciador-de-Viagens?type=design&mode=design&t=rGIgBstdqNA8vJ7b-0</p>
+<p>https://www.figma.com/file/yLXLjEVPCyNIrBT6VmxMr6/Gerenciador-de-Viagens?type=design&node-id=6%3A2&mode=design&t=Ik0Yv1h3tNLPFc6M-1</p>
 
 <h2>Checklist</h2>
 
