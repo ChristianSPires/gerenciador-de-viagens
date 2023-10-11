@@ -12,9 +12,9 @@
 
 <h2>Checklist</h2>
 
-- [ ] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
+- [x] Criar o repositório no GitHub com a estrutura do Gitflow, ou seja, branches main e develop.
 - [ ] Usar componentes de algum framework CSS (Bootstrap, Materialize ou outro).
-- [ ] Apresentar as telas com layout responsivo usando ou não algum framework CSS.
+- [x] Apresentar as telas com layout responsivo usando ou não algum framework CSS.
 - [ ] Construir páginas web com o conceito de componentes.
 - [ ] Criar o layout da aplicação com componentes, ou seja, o cabeçalho e rodapé precisam ser componentes.
 - [ ] Usar pelo menos dois tipos de data-binding (Interpolation, Property Binding, Event Binding e Two Way Data Binding).
