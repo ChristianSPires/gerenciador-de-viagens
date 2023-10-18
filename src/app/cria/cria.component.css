@@ -1,0 +1,25 @@
+/* Estilize o botão */
+.btn {
+  background: linear-gradient(to right, #8739f9, #37b9f1);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+/* Centralize todo o conteúdo na página */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 60vh; /* Define a altura da container para ocupar toda a altura da tela */
+}
+
+/* Estilo adicional para o título (opcional) */
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}

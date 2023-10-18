@@ -1,0 +1,54 @@
+<!-- intro -->
+  <div class="intro green z-depth-1 my-logo-text" [ngStyle]="this.getBackgroundImage()">
+    <h1 class="grey-text text-lighten-5">RATO TRAVEL</h1>
+    <h4 class="blue-text text-darken-1">Controle e planeje suas viagens</h4>
+    <h5 class="blue-text text-darken-1">
+      Se a vida for deixada sem controle, a vida deixará de existir - Thanos</h5>
+  </div>
+<!-- intro -->
+
+<div class="container about">
+  <!-- painel serviços  -->
+  <div id="painel-servicos" [hidden]="isHidePanel">
+    <h5>Selecione uma opção para começar ou continuar seus planejamentos!</h5>
+    <hr />
+    <div class="row">
+      <!-- serviços -->
+      <div class="col s12 m6">
+        <a routerLink="/pesquisa">
+          <div class="card-panel accent-4 center my-card-button">
+            <span class="white-text flow-text"> PESQUISAR VIAGEM </span>
+          </div>
+        </a>
+      </div>
+      <div class="col s12 m6">
+        <a routerLink="/relatorio">
+          <div class="card-panel accent-4 center my-card-button">
+            <span class="white-text flow-text"> RELATÓRIO DE VIAGEM </span>
+          </div>
+        </a>
+      </div>
+      <div class="col s12 m6">
+        <a routerLink="/cria">
+          <div class="card-panel accent-4 center my-card-button">
+            <span class="white-text flow-text"> CRIAR VIAGEM </span>
+          </div>
+        </a>
+      </div>
+      <div class="col s12 m6">
+        <a routerLink="/altera">
+          <div class="card-panel accent-4 center my-card-button">
+            <span class="white-text flow-text"> ALTERAR VIAGEM </span>
+          </div>
+        </a>
+      </div>
+      <div class="col s12 m6">
+        <a routerLink="/exclui">
+          <div class="card-panel accent-4 center my-card-button">
+            <span class="white-text flow-text"> EXCLUIR VIAGEM </span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

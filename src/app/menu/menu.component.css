@@ -1,0 +1,10 @@
+.my-logo {
+  max-width: 60px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.nav-wrapper, .sidenav {
+  background: linear-gradient(to right, #8739f9, #37b9f1);
+}
