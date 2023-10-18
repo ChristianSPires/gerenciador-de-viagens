@@ -1,0 +1,7 @@
+.intro{
+  text-shadow: 2px 2px 2px #8739f9;
+}
+
+.card-panel {
+  background: linear-gradient(to right, #8739f9, #37b9f1);
+}
