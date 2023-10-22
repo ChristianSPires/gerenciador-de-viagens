@@ -1,1 +1,8 @@
-<p>altera works!</p>
+<div class="container">
+  <h1>Viagens Cadastradas</h1>
+  <ul>
+    <li *ngFor="let viagem of viagens">
+      <a [routerLink]="['/viagem', viagem.id]">{{ viagem.nome }}</a>
+    </li>
+  </ul>
+</div>

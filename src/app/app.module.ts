@@ -14,6 +14,8 @@ import { CriaComponent } from './cria/cria.component';
 import { AlteraComponent } from './altera/altera.component';
 import { ExcluiComponent } from './exclui/exclui.component';
 import { NgxMaskModule } from 'ngx-mask';
+import { ViagemDetalhesComponent } from './viagem-detalhes/viagem-detalhes.component';
+import { TemporizadorComponent } from './temporizador/temporizador.component';
 
 
 @NgModule({
@@ -26,7 +28,9 @@ import { NgxMaskModule } from 'ngx-mask';
     RelatorioComponent,
     CriaComponent,
     AlteraComponent,
-    ExcluiComponent
+    ExcluiComponent,
+    ViagemDetalhesComponent,
+    TemporizadorComponent,
   ],
   imports: [
     BrowserModule,

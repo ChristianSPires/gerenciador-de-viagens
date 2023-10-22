@@ -12,4 +12,5 @@ export class MenuComponent {
   ngAfterViewInit(): void {
     M.Sidenav.init(this.sideNav?.nativeElement);
   }
+
 }
