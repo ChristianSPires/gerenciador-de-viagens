@@ -1,4 +1,3 @@
-/* Estilize o botão */
 .btn {
   background: linear-gradient(to right, #8739f9, #37b9f1);
   color: #fff;
@@ -9,17 +8,21 @@
   margin-top: 20px;
 }
 
-/* Centralize todo o conteúdo na página */
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh; /* Define a altura da container para ocupar toda a altura da tela */
+  height: 60vh;
 }
 
-/* Estilo adicional para o título (opcional) */
 h1 {
   font-size: 24px;
   margin-bottom: 20px;
+}
+
+.wrapper-button-cad {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

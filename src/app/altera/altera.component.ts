@@ -12,6 +12,6 @@ export class AlteraComponent implements OnInit {
   constructor(private viagemService: ViagemService) {}
 
   ngOnInit() {
-    this.viagens = this.viagemService.listarViagens();
+    this.viagens = this.viagemService.getViagens();
   }
 }

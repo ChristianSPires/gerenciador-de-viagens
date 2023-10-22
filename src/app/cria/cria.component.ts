@@ -7,8 +7,11 @@ import { ViagemService } from '../viagem.service';
   styleUrls: ['./cria.component.css']
 })
 export class CriaComponent {
+
   orcamentoPrevisto: number;
   nomeViagem: string;
+  dataInicialViagem: string = '';
+  dataFinalViagem: string = '';
 
   constructor(private viagemService: ViagemService) {
     this.orcamentoPrevisto = 0;
@@ -30,12 +33,18 @@ export class CriaComponent {
   onButtonClick() {
     this.viagemService.adicionarViagem({
       nome: this.nomeViagem,
-      orcamentoPrevisto: this.orcamentoPrevisto
+      orcamentoPrevisto: this.orcamentoPrevisto,
+      dataInicial: this.dataInicialViagem,
+      dataFinal: this.dataFinalViagem
     });
     alert(`A viagem de nome ${this.nomeViagem} com o valor previsto de ${this.orcamentoPrevisto} foi cadastrada com sucesso`);
   }
 
   onEnterKey() {
     this.onButtonClick();
+  }
+
+  handleTempoNaPagina() {
+    alert('Ainda está ai? Cuidado para não viajar demais e acabar esquecendo de bloquear a tela do seu computador. ;D');
   }
 }
