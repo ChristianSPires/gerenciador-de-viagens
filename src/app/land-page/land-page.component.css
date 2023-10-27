@@ -1,7 +1,15 @@
-.intro{
+.intro {
+  text-align: center;
+  padding-top: 13%;
+  padding-bottom: 13%;
+  min-height: 680px;
+  margin-bottom: 50px;
+  background-image: url("/assets/resources/images/fundo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   text-shadow: 2px 2px 2px #8739f9;
 }
 
 .card-panel {
-  background: linear-gradient(to right, #8739f9, #37b9f1);
+  background: var(--primary);
 }

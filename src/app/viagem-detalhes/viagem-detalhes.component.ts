@@ -5,23 +5,25 @@ import { ViagemService } from '../viagem.service';
 @Component({
   selector: 'app-viagem-detalhes',
   templateUrl: './viagem-detalhes.component.html',
-  styleUrls: ['./viagem-detalhes.component.css']
+  styleUrls: ['./viagem-detalhes.component.css'],
 })
 export class ViagemDetalhesComponent {
-
   viagem: any;
   tempViagem: any;
   statusViagem: string = 'Não informado';
 
-  constructor(private route: ActivatedRoute, private viagemService: ViagemService, private router: Router) {}
+  constructor(
+    private route: ActivatedRoute,
+    private viagemService: ViagemService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
     if (id !== null) {
       this.viagem = this.viagemService.getViagemById(id);
-      this.tempViagem = { ...this.viagem };
+      this.tempViagem = JSON.parse(JSON.stringify(this.viagem));
     } else {
-      // Erro caso ID seja nulo
     }
   }
 
@@ -33,17 +35,18 @@ export class ViagemDetalhesComponent {
   }
 
   cancelar() {
-
     this.viagem.dataInicial = this.tempViagem.dataInicial;
     this.viagem.dataFinal = this.tempViagem.dataFinal;
-    this.viagem.valorPrevistoAlimentacao = null;
-    this.viagem.valorGastoAlimentacao = null;
-    this.viagem.valorPrevistoPassagem = null;
-    this.viagem.valorGastoPassagem = null;
-    this.viagem.valorPrevistoTransporte = null;
-    this.viagem.valorGastoTransporte = null;
-    this.viagem.valorPrevistoCompras = null;
-    this.viagem.valorGastoCompras = null;
+    this.viagem.valorPrevistoAlimentacao =
+      this.tempViagem.valorPrevistoAlimentacao;
+    this.viagem.valorGastoAlimentacao = this.tempViagem.valorGastoAlimentacao;
+    this.viagem.valorPrevistoPassagem = this.tempViagem.valorPrevistoPassagem;
+    this.viagem.valorGastoPassagem = this.tempViagem.valorGastoPassagem;
+    this.viagem.valorPrevistoTransporte =
+      this.tempViagem.valorPrevistoTransporte;
+    this.viagem.valorGastoTransporte = this.tempViagem.valorGastoTransporte;
+    this.viagem.valorPrevistoCompras = this.tempViagem.valorPrevistoCompras;
+    this.viagem.valorGastoCompras = this.tempViagem.valorGastoCompras;
 
     this.router.navigate(['/altera']);
   }
@@ -92,5 +95,23 @@ export class ViagemDetalhesComponent {
   editarDataFinal() {
     this.getStatusButtonClass();
     this.getStatusButtonText();
+  }
+
+  calcularTotalPrevisto() {
+    let total = 0;
+    total += this.viagem.valorPrevistoAlimentacao || 0;
+    total += this.viagem.valorPrevistoPassagem || 0;
+    total += this.viagem.valorPrevistoTransporte || 0;
+    total += this.viagem.valorPrevistoCompras || 0;
+    return total;
+  }
+
+  calcularTotalGasto() {
+    let total = 0;
+    total += this.viagem.valorGastoAlimentacao || 0;
+    total += this.viagem.valorGastoPassagem || 0;
+    total += this.viagem.valorGastoTransporte || 0;
+    total += this.viagem.valorGastoCompras || 0;
+    return total;
   }
 }

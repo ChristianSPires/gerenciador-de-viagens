@@ -4,7 +4,7 @@ import * as M from 'materialize-css';
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.css']
+  styleUrls: ['./menu.component.css'],
 })
 export class MenuComponent {
   @ViewChild('mobile') sideNav?: ElementRef;
@@ -13,4 +13,7 @@ export class MenuComponent {
     M.Sidenav.init(this.sideNav?.nativeElement);
   }
 
+  public toggle() {
+    document.body.classList.toggle('dark-theme');
+  }
 }

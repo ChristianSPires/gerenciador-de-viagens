@@ -1,19 +1,33 @@
 <div class="container">
   <div class="row">
-    <form class="col s12">
+    <form class="col s12" #form="ngForm" (ngSubmit)="onSubmit(form)">
       <div class="row">
         <div class="col s12">
           <h1>Criar uma nova viagem</h1>
           <div class="input-field">
-            <input type="text" id="nomeViagem" [ngModelOptions]="{standalone: true}" required [(ngModel)]="nomeViagem">
+            <input
+              type="text"
+              id="nomeViagem"
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="nomeViagem"
+              #nomeviagem="ngModel"
+              pattern = "[A-Za-zÀ-Úà-ú0-9\s]+$"
+              required
+            />
             <label for="nomeViagem">Nome da Viagem:</label>
+          </div>
+          <div class="red-text" [hidden]="nomeviagem.valid || nomeviagem.untouched">
+            Por favor, insira um nome de viagem válido (Não são permitidos caracteres especiais).
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col s12">
           <div class="input-field">
-            <select (change)="this.onSelectChange($event)" [(ngModel)]="orcamentoPrevisto">
+            <select
+              (change)="this.onSelectChange($event)"
+              [(ngModel)]="orcamentoPrevisto"
+            >
               <option value="-1">Escolha um valor</option>
               <option value="1000">R$ 1000,00</option>
               <option value="1500">R$ 1500,00</option>
@@ -38,24 +52,33 @@
             prefix="R$ "
             [dropSpecialCharacters]="true"
             [showMaskTyped]="false"
-            (keydown.enter)="onEnterKey()"
           />
         </div>
       </div>
       <div class="form-group">
         <label>Data Inicial da Viagem</label>
-        <input type="date" name="dataInicialViagem" [(ngModel)]="dataInicialViagem" required>
+        <input
+          type="date"
+          name="dataInicialViagem"
+          [(ngModel)]="dataInicialViagem"
+          required
+        />
       </div>
 
       <div class="form-group">
         <label>Data Final da Viagem</label>
-        <input type="date" name="dataFinalViagem" [(ngModel)]="dataFinalViagem" required>
+        <input
+          type="date"
+          name="dataFinalViagem"
+          [(ngModel)]="dataFinalViagem"
+          required
+        />
       </div>
       <div class="wrapper-button-cad">
         <button
           class="btn waves-effect waves-light darken-4"
-          type="button"
-          (click)="this.onButtonClick();"
+          type="submit"
+          [disabled]="!form.valid"
         >
           Cadastrar Viagem
         </button>

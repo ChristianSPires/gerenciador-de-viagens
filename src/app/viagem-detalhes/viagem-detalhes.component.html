@@ -153,6 +153,16 @@
         </div>
 
         <div class="form-group">
+          <label>Total Previsto (BRL)</label>
+          <span>{{ calcularTotalPrevisto() | currency:'BRL' }}</span>
+        </div>
+
+        <div class="form-group">
+          <label>Total Gasto (BRL)</label>
+          <span>{{ calcularTotalGasto() | currency:'BRL' }}</span>
+        </div>
+
+        <div class="form-group">
           <div class="wrapper-buttons-detail">
             <button class="btn waves-effect waves-light darken-4" type="submit" (click)="salvar()">Salvar</button>
             <button class="btn waves-effect waves-light darken-4" type="button" (click)="cancelar()">Cancelar</button>

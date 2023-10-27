@@ -14,4 +14,16 @@ export class AlteraComponent implements OnInit {
   ngOnInit() {
     this.viagens = this.viagemService.getViagens();
   }
+
+  getStatus(viagem: any): string {
+    return this.viagemService.getStatus(viagem);
+  }
+
+  confirmarExclusao(viagem: any) {
+    const confirmacao = window.confirm(`Tem certeza que deseja excluir a viagem "${viagem.nome}"?`);
+    if (confirmacao) {
+      this.viagemService.excluirViagem(viagem.id);
+      this.viagens = this.viagemService.getViagens();
+    }
+  }
 }

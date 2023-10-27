@@ -12,11 +12,9 @@ import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { RelatorioComponent } from './relatorio/relatorio.component';
 import { CriaComponent } from './cria/cria.component';
 import { AlteraComponent } from './altera/altera.component';
-import { ExcluiComponent } from './exclui/exclui.component';
 import { NgxMaskModule } from 'ngx-mask';
 import { ViagemDetalhesComponent } from './viagem-detalhes/viagem-detalhes.component';
 import { TemporizadorComponent } from './temporizador/temporizador.component';
-
 
 @NgModule({
   declarations: [
@@ -28,7 +26,6 @@ import { TemporizadorComponent } from './temporizador/temporizador.component';
     RelatorioComponent,
     CriaComponent,
     AlteraComponent,
-    ExcluiComponent,
     ViagemDetalhesComponent,
     TemporizadorComponent,
   ],
@@ -36,9 +33,9 @@ import { TemporizadorComponent } from './temporizador/temporizador.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
   ],
   providers: [ViagemService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
