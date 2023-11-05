@@ -1,0 +1,29 @@
+{
+  "routes": [
+    {
+      "method": "POST",
+      "path": "/usuarios",
+      "handler": "createUser"
+    },
+    {
+      "method": "GET",
+      "path": "/usuarios",
+      "handler": "listUsers"
+    },
+    {
+      "method": "GET",
+      "path": "/usuarios/:id",
+      "handler": "getUser"
+    },
+    {
+      "method": "PUT",
+      "path": "/usuarios/:id",
+      "handler": "updateUser"
+    },
+    {
+      "method": "DELETE",
+      "path": "/usuarios/:id",
+      "handler": "deleteUser"
+    }
+  ]
+}

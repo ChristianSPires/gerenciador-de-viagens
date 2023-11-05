@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ViagemService } from '../viagem.service';
 
 @Component({
   selector: 'app-land-page',
@@ -8,7 +9,12 @@ import { Component } from '@angular/core';
 export class LandPageComponent {
   imageURL: string = '/assets/resources/images/fundo.jpg';
   isHidePanel = true;
-  constructor() {}
+
+  constructor(private viagemService: ViagemService) {}
+
+  isLoggedIn(): boolean {
+    return this.viagemService.isLoggedIn();
+  }
 
   getBackgroundImage() {
     return {

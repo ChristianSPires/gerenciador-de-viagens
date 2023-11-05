@@ -1,0 +1,18 @@
+{
+  "usuarios": [
+    {
+      "nome": "Jaspion da Silva",
+      "email": "jaspion@outlook.com",
+      "telefone": "48484848",
+      "senha": "Zxcv1234@",
+      "id": 1
+    },
+    {
+      "nome": "Pericles Santos",
+      "email": "exaltasamba@yahoo.com",
+      "telefone": "49494949",
+      "senha": "Peric@2023",
+      "id": 2
+    }
+  ]
+}

@@ -10,27 +10,31 @@
             <i class="material-icons">menu</i>
           </a>
           <ul class="right hide-on-med-and-down">
-            <li>
+            <li *ngIf="isLoggedIn()">
               <a routerLink="/pesquisa"><i class="material-icons">search</i></a>
             </li>
-            <li>
+            <li *ngIf="isLoggedIn()">
               <a routerLink="/relatorio"
                 ><i class="material-icons">assignment</i></a
               >
             </li>
-            <li>
+            <li *ngIf="isLoggedIn()">
               <a routerLink="/cria"><i class="material-icons">add_circle</i></a>
             </li>
-            <li>
+            <li *ngIf="isLoggedIn()">
               <a routerLink="/altera"><i class="material-icons">edit</i></a>
-            </li>
-            <li>
-              <a href=".html"><i class="material-icons">account_circle</i></a>
             </li>
             <li>
               <a (click)="toggle()"
                 ><i class="material-icons">brightness_4</i></a
               >
+            </li>
+            <li *ngIf="isLoggedIn()">
+              <a routerLink="/login" (click)="logout()"><i class="material-icons">exit_to_app</i></a>
+            </li>
+            <li *ngIf="!isLoggedIn()">
+              <a routerLink="/login"><i class="material-icons">account_circle</i>
+              </a>
             </li>
           </ul>
         </div>
@@ -50,36 +54,42 @@
           </div>
         </div>
       </div>
-      <li>
+      <li *ngIf="isLoggedIn()">
         <a routerLink="/pesquisa"
           ><i class="material-icons left">search</i>Pesquisar Viagem</a
         >
       </li>
-      <li>
+      <li *ngIf="isLoggedIn()">
         <a routerLink="/relatorio"
           ><i class="material-icons left">assignment</i>Relatório de Viagem</a
         >
       </li>
-      <li>
+      <li *ngIf="isLoggedIn()">
         <a routerLink="/cria"
           ><i class="material-icons left">add_circle</i>Criar Viagem</a
         >
       </li>
-      <li>
+      <li *ngIf="isLoggedIn()">
         <a routerLink="/altera"
           ><i class="material-icons left">edit</i>Alterar Viagem</a
-        >
-      </li>
-      <li>
-        <a href=".html"
-          ><i class="material-icons left">account_circle</i>Informações
-          Pessoais</a
         >
       </li>
       <li>
         <a (click)="toggle()"
           ><i class="material-icons left">brightness_4</i>Tema Claro/Escuro</a
         >
+      </li>
+      <li *ngIf="isLoggedIn()">
+        <a (click)="logout()">
+          <i class="material-icons">exit_to_app</i>
+          Sair
+        </a>
+      </li>
+      <li *ngIf="!isLoggedIn()">
+        <a routerLink="/login">
+          <i class="material-icons">account_circle</i>
+          Fazer Login
+        </a>
       </li>
     </ul>
   </div>

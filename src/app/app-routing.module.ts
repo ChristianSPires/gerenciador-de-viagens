@@ -7,6 +7,8 @@ import { PesquisaComponent } from './pesquisa/pesquisa.component';
 import { RelatorioComponent } from './relatorio/relatorio.component';
 import { ViagemDetalhesComponent } from './viagem-detalhes/viagem-detalhes.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { CadastroComponent } from './cadastro/cadastro.component';
 
 const routes: Routes = [
   { path: 'inicio', component: LandPageComponent },
@@ -16,6 +18,8 @@ const routes: Routes = [
   { path: 'viagem/:id', component: ViagemDetalhesComponent },
   { path: 'pesquisa', component: PesquisaComponent },
   { path: 'relatorio', component: RelatorioComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'cadastro', component: CadastroComponent },
 ];
 
 @NgModule({

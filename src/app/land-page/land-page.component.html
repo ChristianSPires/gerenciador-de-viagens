@@ -10,33 +10,40 @@
 <div class="container about">
   <!-- painel serviços  -->
   <div id="painel-servicos" >
-    <h5>Selecione uma opção para começar ou continuar seus planejamentos!</h5>
+    <h5 class="center-align">Selecione uma opção para começar ou continuar seus planejamentos!</h5>
     <hr />
     <div class="row">
       <!-- serviços -->
+      <div class="col s12 m6 offset-m3" *ngIf="!isLoggedIn()">
+        <a routerLink="/login">
+          <div class="card-panel accent-4 center my-card-button">
+            <span class="white-text flow-text">Login</span>
+          </div>
+        </a>
+      </div>
       <div class="col s12 m6">
-        <a routerLink="/pesquisa">
+        <a routerLink="/pesquisa" *ngIf="isLoggedIn()">
           <div class="card-panel accent-4 center my-card-button">
             <span class="white-text flow-text"> PESQUISAR VIAGEM </span>
           </div>
         </a>
       </div>
       <div class="col s12 m6">
-        <a routerLink="/relatorio">
+        <a routerLink="/relatorio" *ngIf="isLoggedIn()">
           <div class="card-panel accent-4 center my-card-button">
             <span class="white-text flow-text"> RELATÓRIO DE VIAGEM </span>
           </div>
         </a>
       </div>
       <div class="col s12 m6">
-        <a routerLink="/cria">
+        <a routerLink="/cria" *ngIf="isLoggedIn()">
           <div class="card-panel accent-4 center my-card-button">
             <span class="white-text flow-text"> CRIAR VIAGEM </span>
           </div>
         </a>
       </div>
       <div class="col s12 m6">
-        <a routerLink="/altera">
+        <a routerLink="/altera" *ngIf="isLoggedIn()">
           <div class="card-panel accent-4 center my-card-button">
             <span class="white-text flow-text"> ALTERAR VIAGEM </span>
           </div>

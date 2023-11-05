@@ -1,11 +1,20 @@
 import { Injectable } from '@angular/core';
 
+interface Usuario {
+  nome: string;
+  email: string;
+  telefone: string;
+  senha: string;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class ViagemService {
   viagens: any[] = [];
+  usuarios: any[] = JSON.parse(localStorage.getItem('usuarios') || '[]');
   idCounter: number = 1;
+
 
   adicionarViagem(viagem: any) {
     viagem.id = this.generateUniqueId();
@@ -72,5 +81,55 @@ export class ViagemService {
     } else {
       return 'Concluída';
     }
+  }
+
+  cadastrarUsuario(usuario: Usuario): Promise<Usuario> {
+    return fetch('http://localhost:3000/usuarios', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(usuario),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Erro ao cadastrar usuário');
+        }
+      })
+      .then((usuarioCadastrado) => {
+        return usuarioCadastrado;
+      });
+  }
+
+  login(email: string, senha: string): Promise<Usuario> {
+    return fetch('http://localhost:3000/usuarios')
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error('Erro ao buscar usuários');
+        }
+      })
+      .then((usuarios: Usuario[]) => {
+        const user = usuarios.find((usuario) => usuario.email === email && usuario.senha === senha);
+        if (user) {
+          localStorage.setItem('loggedUser', JSON.stringify(user));
+          return user;
+        } else {
+          throw new Error('Credenciais inválidas');
+        }
+      });
+  }
+
+
+  isLoggedIn(): boolean {
+    const user = localStorage.getItem('loggedUser');
+    return user !== null;
+  }
+
+  logout(): void {
+    localStorage.removeItem('loggedUser');
   }
 }

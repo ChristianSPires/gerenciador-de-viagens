@@ -16,11 +16,6 @@ export class CriaComponent {
   constructor(private viagemService: ViagemService) {
     this.orcamentoPrevisto = 0;
     this.nomeViagem = '';
-
-    const storedViagens = localStorage.getItem('viagens');
-    if (storedViagens) {
-      this.viagemService.viagens = JSON.parse(storedViagens);
-    }
   }
 
   ngAfterViewInit() {
