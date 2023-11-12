@@ -1,9 +1,20 @@
 import { Directive, Input } from '@angular/core';
-import { NG_VALIDATORS, Validator, AbstractControl, ValidationErrors } from '@angular/forms';
+import {
+  NG_VALIDATORS,
+  Validator,
+  AbstractControl,
+  ValidationErrors,
+} from '@angular/forms';
 
 @Directive({
   selector: '[equalTo]',
-  providers: [{ provide: NG_VALIDATORS, useExisting: EqualValidatorDirective, multi: true }],
+  providers: [
+    {
+      provide: NG_VALIDATORS,
+      useExisting: EqualValidatorDirective,
+      multi: true,
+    },
+  ],
 })
 export class EqualValidatorDirective implements Validator {
   @Input('equalTo') equalTo!: string;

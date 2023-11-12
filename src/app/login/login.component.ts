@@ -16,7 +16,8 @@ export class LoginComponent {
 
   onSubmit(form: NgForm) {
     if (form.valid) {
-      this.viagemService.login(this.email, this.senha)
+      this.viagemService
+        .login(this.email, this.senha)
         .then((user) => {
           this.router.navigate(['/inicio']);
         })

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, map, of } from 'rxjs';
 
 interface Usuario {
   nome: string;
@@ -14,7 +15,6 @@ export class ViagemService {
   viagens: any[] = [];
   usuarios: any[] = JSON.parse(localStorage.getItem('usuarios') || '[]');
   idCounter: number = 1;
-
 
   adicionarViagem(viagem: any) {
     viagem.id = this.generateUniqueId();
@@ -113,7 +113,9 @@ export class ViagemService {
         }
       })
       .then((usuarios: Usuario[]) => {
-        const user = usuarios.find((usuario) => usuario.email === email && usuario.senha === senha);
+        const user = usuarios.find(
+          (usuario) => usuario.email === email && usuario.senha === senha
+        );
         if (user) {
           localStorage.setItem('loggedUser', JSON.stringify(user));
           return user;
@@ -123,7 +125,6 @@ export class ViagemService {
       });
   }
 
-
   isLoggedIn(): boolean {
     const user = localStorage.getItem('loggedUser');
     return user !== null;
@@ -131,5 +132,22 @@ export class ViagemService {
 
   logout(): void {
     localStorage.removeItem('loggedUser');
+  }
+
+  calcularGastoTotal(): Observable<number> {
+    return of(this.viagens).pipe(
+      map((viagens) => {
+        let totalGasto = 0;
+
+        viagens.forEach((viagem) => {
+          totalGasto += viagem.valorGastoAlimentacao || 0;
+          totalGasto += viagem.valorGastoPassagem || 0;
+          totalGasto += viagem.valorGastoTransporte || 0;
+          totalGasto += viagem.valorGastoCompras || 0;
+        });
+
+        return totalGasto;
+      })
+    );
   }
 }

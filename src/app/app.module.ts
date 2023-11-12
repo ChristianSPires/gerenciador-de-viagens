@@ -42,6 +42,7 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     NgxMaskModule.forRoot(),
     ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ViagemService],
   bootstrap: [AppComponent],
