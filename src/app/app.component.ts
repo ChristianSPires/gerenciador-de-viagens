@@ -1,10 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
+import * as M from 'materialize-css';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'angular-app';
+  @ViewChild('mobile') sideNav?: ElementRef;
+
+  title = 'gerenciador-de-viagens';
+
+  ngAfterViewInit(): void {
+    M.Sidenav.init(this.sideNav?.nativeElement);
+  }
 }

@@ -1,0 +1,129 @@
+<div class="container">
+  <div class="row">
+    <form class="col s12" #form="ngForm" (ngSubmit)="onSubmit(form)">
+      <div class="row">
+        <div class="col s12">
+          <h1>Cadastro</h1>
+          <div class="input-field">
+            <input
+              type="text"
+              id="nomeUsuario"
+              [ngModelOptions]="{ standalone: true }"
+              [(ngModel)]="nomeUsuario"
+              #nomeusuario="ngModel"
+              pattern="[A-Za-zÀ-Úà-ú\s]+$"
+              required
+            />
+            <label for="nomeUsuario">Nome Completo:</label>
+          </div>
+          <div
+            class="red-text"
+            [hidden]="nomeusuario.valid || nomeusuario.untouched"
+          >
+            Por favor, insira um nome válido (Não são permitidos caracteres
+            especiais e/ou números).
+          </div>
+        </div>
+        <div class="col s12">
+          <div class="input-field">
+            <input
+              type="email"
+              id="email"
+              [(ngModel)]="email"
+              name="email"
+              pattern="^[a-zA-Z0-9._% -]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$"
+              required
+            />
+            <label for="email">Email:</label>
+          </div>
+          <div
+            class="red-text"
+            [hidden]="
+              form.controls['email'].valid || form.controls['email'].untouched
+            "
+          >
+            Por favor, insira um email válido.
+          </div>
+        </div>
+        <div class="col s12">
+          <div class="input-field">
+            <input
+              type="tel"
+              id="telefone"
+              [(ngModel)]="telefone"
+              name="telefone"
+              pattern="^[0-9]*$"
+              required
+            />
+            <label for="telefone">Telefone:</label>
+          </div>
+          <div
+            class="red-text"
+            [hidden]="
+              form.controls['telefone'].valid ||
+              form.controls['telefone'].untouched
+            "
+          >
+            Por favor, insira um telefone válido.
+          </div>
+        </div>
+        <div class="col s12">
+          <div class="input-field">
+            <input
+              type="password"
+              id="senha"
+              [(ngModel)]="senha"
+              name="senha"
+              pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+              required
+            />
+            <label for="senha">Senha:</label>
+          </div>
+          <div
+            class="red-text"
+            [hidden]="
+              form.controls['senha'].valid || form.controls['senha'].untouched
+            "
+          >
+            Senha inválida. Deve conter pelo menos 8 caracteres, incluindo 1
+            letra maiúscula, 1 letra minúscula, 1 número e 1 símbolo especial.
+          </div>
+        </div>
+        <div class="col s12">
+          <div class="input-field">
+            <input
+              type="password"
+              id="confirmarSenha"
+              [(ngModel)]="confirmarSenha"
+              name="confirmarSenha"
+              equalTo="senha"
+              required
+            />
+            <label for="confirmarSenha">Confirmar Senha:</label>
+          </div>
+          <div
+            class="red-text"
+            [hidden]="
+              form.controls['confirmarSenha'].valid ||
+              form.controls['confirmarSenha'].untouched
+            "
+          >
+            As senhas não coincidem.
+          </div>
+        </div>
+      </div>
+      <div class="wrapper-button-cad">
+        <button
+          class="btn waves-effect waves-light darken-4"
+          type="submit"
+          [disabled]="!form.valid"
+        >
+          Registrar-se
+        </button>
+      </div>
+      <p class="center-align">
+        Já possui uma conta? <a routerLink="/login">Clique aqui</a>
+      </p>
+    </form>
+  </div>
+</div>

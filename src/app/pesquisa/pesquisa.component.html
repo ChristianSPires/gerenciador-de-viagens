@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>Viagens Cadastradas</h1>
+
+  <input type="text" [(ngModel)]="termoPesquisa" (input)="executarPesquisa()" placeholder="Pesquisar">
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Data Inicial</th>
+        <th>Data Final</th>
+        <th>Status</th>
+        <th>Valor Total Previsto</th>
+        <th>Valor Total Gasto</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let viagem of resultadosPesquisa">
+        <td>{{ viagem.nome }}</td>
+        <td>{{ viagem.dataInicial | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ viagem.dataFinal | date: 'dd/MM/yyyy' }}</td>
+        <td>{{ getStatus(viagem) }}</td>
+        <td>{{ viagem.valorTotalPrevisto | currency: 'BRL' }}</td>
+        <td>{{ viagem.valorTotalGasto | currency: 'BRL' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

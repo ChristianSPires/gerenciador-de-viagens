@@ -1,0 +1,11 @@
+.my-logo {
+  max-width: 60px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.nav-wrapper,
+.sidenav {
+  background: var(--primary);
+}
