@@ -15,18 +15,11 @@
       "id": 2
     },
     {
-      "nome": "Christian Pires",
-      "email": "christianpires@alunos.utfpr.edu.br",
-      "telefone": "32426671",
-      "senha": "Chris1510@",
-      "id": 3
-    },
-    {
       "nome": "Abraham Lincoln",
       "email": "abraham@gmail.com",
       "telefone": "9393939",
       "senha": "Abra@2023",
-      "id": 4
+      "id": 3
     }
   ]
 }
